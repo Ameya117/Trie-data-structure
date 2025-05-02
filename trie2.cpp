@@ -1,5 +1,7 @@
 
 // countxWordsEqualTo() | countWordsStartingWith()
+#include<bits/stdc++.h>
+using namespace std;
 
 struct Node{
     Node *links[26];
@@ -27,7 +29,7 @@ struct Node{
     }
 
     void increasePrefix(){
-        prefix++:
+        prefix++;
     }
 
     void reducePrefix(){
@@ -41,7 +43,7 @@ struct Node{
     void reduceEndsWith(){
         endswith--;
     }
-}
+};
 
 class Trie{
 private:
@@ -55,7 +57,7 @@ public:
     void insert(string word){
         Node *node = root;
         for (int i=0;i<word.size();i++){
-            if (!node->containsKey(words[i])){
+            if (!node->containsKey(word[i])){
                 node->putChar(word[i], new Node());
             }
             node = node->get(word[i]);
@@ -75,7 +77,7 @@ public:
         }
 
         return node->getEndsWith();
-    } 
+    };
     
     int countWordsStartingWith(string prefix){
         Node *node = root;

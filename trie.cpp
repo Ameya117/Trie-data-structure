@@ -1,3 +1,6 @@
+#include<bits/stdc++.h>
+using namespace std;
+
 struct Node
 {
     Node *links[26];
@@ -26,7 +29,7 @@ struct Node
     bool isEnd(){
         return flag;
     }
-}
+};
 
 class Trie
 {
@@ -51,7 +54,7 @@ public:
             }
 
             // moves to the reference trie
-            node = node->get(words[i]);
+            node = node->get(word[i]);
         }
 
         // end of the word
@@ -68,7 +71,7 @@ public:
             if (!node->containsKey(word[i])){
                 return false;
             }
-            node = node->get(words[i]);
+            node = node->get(word[i]);
         }
         return node->isEnd();
     }
@@ -76,12 +79,12 @@ public:
     // checking for a prefix
     bool startsWith(string prefix){
         Node *node = root;
-        for (int i=0;i<prefix.size()){
+        for (int i=0;i<prefix.size();i++){
             if (!node->containsKey(prefix[i])){
                 return false;
             }
-            node = node->get(word[i]);
+            node = node->get(prefix[i]);
         }
         return true;
     }
-}
+};
